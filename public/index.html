@@ -182,26 +182,71 @@
     /* Utility */
     .muted{color:var(--light-slate)}
     .kicker{font-weight:800;color:var(--green);letter-spacing:.08em;font-size:.8rem;text-transform:uppercase}
+    /* Mobile Menu Styles */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid rgba(100,255,218,.25);
+  color: var(--green);
+  padding: .35rem .6rem;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .menu {
+    display: none;
+    position: absolute;
+    top: 60px; /* Adjust this value to match your header height */
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: var(--light-navy);
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    box-shadow: 0 10px 20px rgba(2,12,27,.7);
+  }
+  .menu.is-open {
+    display: flex;
+  }
+  .menu a {
+    padding: .75rem 0;
+    width: 100%;
+    text-align: center;
+  }
+  .menu a.cta {
+    margin-top: .5rem;
+    border: none;
+    background: var(--green);
+    color: var(--navy);
+  }
+  .menu-toggle {
+    display: block;
+  }
+}
   </style>
 </head>
 <body class="antialiased">
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#home" aria-label="Apex Digital Solutions home">
-        <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
-        <span>Apex Digital</span>
-      </a>
-      <nav class="menu" aria-label="Primary">
-        <li><a href="/blog/">Blog</a></li>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#testimonials">Testimonials</a>
-        
-        <a href="#faq">FAQ</a>
-        <a href="#contact" class="cta"><i class="fa-solid fa-phone"></i> Free Strategy Call</a>
-      </nav>
-    </div>
-  </header>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="Apex Digital Solutions home">
+      <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+      <span>Apex Digital</span>
+    </a>
+    <button id="menu-toggle" class="menu-toggle" aria-label="Open navigation menu">
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
+    <nav id="nav-menu" class="menu" aria-label="Primary">
+      <a href="/blog/">Blog</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="cta"><i class="fa-solid fa-phone"></i> Free Strategy Call</a>
+    </nav>
+  </div>
+</header>
 
   <main>
     <section id="home" class="hero container page-section">
@@ -474,9 +519,19 @@
     },{threshold:0.12});
     sections.forEach(s=>reveal.observe(s));
   </script>
+  <script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('is-open');
+    });
+  }
+</script>
 </body>
 
 </html>
+
 
 
 
