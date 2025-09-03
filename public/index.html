@@ -153,11 +153,55 @@
     .testimonial{background:var(--light-navy);border:1px solid rgba(100,255,218,.12);padding:1rem;border-radius:.9rem}
     .testimonial .who{display:flex;align-items:center;gap:.6rem;margin-top:.6rem;color:var(--lightest-slate)}
 
-    /* Blog */
-    .posts{display:grid;gap:1rem}
-    .post{background:var(--light-navy);border:1px solid rgba(100,255,218,.12);border-radius:.9rem;overflow:hidden}
-    .post img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
-    .post .body{padding:1rem}
+   /* New Blog Styles */
+.post {
+  position: relative;
+  overflow: hidden;
+  border-radius: .9rem;
+  box-shadow: 0 10px 30px -15px rgba(2,12,27,.7);
+  border: 1px solid rgba(100,255,218,.12);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px -15px rgba(2,12,27,.9);
+}
+.post img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease-in-out;
+  z-index: 1;
+}
+.post:hover img {
+  transform: scale(1.05);
+}
+.post .body {
+  position: relative;
+  z-index: 2;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 250px;
+  background: linear-gradient(to top, rgba(10,25,47, 0.95), rgba(10,25,47, 0));
+}
+.post .body h3 {
+  color: var(--lightest-slate);
+  margin: 0 0 .5rem 0;
+}
+.post .body p {
+  color: var(--light-slate);
+  margin: 0 0 1rem 0;
+}
+.post .body .more {
+  font-weight: 700;
+  color: var(--green);
+  align-self: flex-start;
+}
 
     /* FAQ */
     details.faq{background:var(--light-navy);border:1px solid rgba(100,255,218,.12);border-radius:.9rem;padding:1rem}
@@ -339,32 +383,39 @@
       </div>
     </section>
 
-    <section id="blog" class="container page-section">
-      <h2 class="section-title">Insights & SEO Guides</h2>
-      <div class="posts grid grid-3">
-        <article class="post">
-          <div class="body">
-            <h3>Pass Core Web Vitals in 7 Steps</h3>
-   <img src="/images/core-web-vitals.jpg" alt="An infographic explaining Google's Core Web Vitals: LCP, FID, and CLS." style="width:100%; height:auto; border-radius:8px; margin-top:20px; margin-bottom:20px; display:block; margin-left:auto; margin-right:auto;">
-</div>
-</article>
-<article class="post">
-<div class="body">
-<h3>Local SEO for Hubli–Dharwad</h3>
-<img src="/images/local-seo-hubli-dharwad.jpg" alt="An infographic for Local SEO, showing a map of Hubli-Dharwad with icons for Google Business Profile and customer reviews." style="width:100%; height:auto; border-radius:8px; margin-top:20px; margin-bottom:20px; display:block; margin-left:auto; margin-right:auto;">
-<p class="muted">How to optimize your Google Business Profile and citations the right way.</p>
-<a class="more" href="#">Read →</a>
-</div>
-</article>
-<article class="post">
-<div class="body">
-<h3>Content That Wins Featured Snippets</h3>
-<img src="/images/featured-snippets.jpg" alt="An infographic showing how to win Google Featured Snippets with lists, Q&A format, and clear headings." style="width:100%; height:auto; border-radius:8px; margin-top:20px; margin-bottom:20px; display:block; margin-left:auto; margin-right:auto;">
-            <a class="more" href="#">Read →</a>
-          </div>
-        </article>
+   <section id="blog" class="container page-section">
+  <h2 class="section-title">Insights & SEO Guides</h2>
+  <div class="posts grid grid-3">
+    
+    <article class="post">
+      <img src="/images/core-web-vitals.jpg" alt="An infographic explaining Google's Core Web Vitals: LCP, FID, and CLS." loading="lazy">
+      <div class="body">
+        <h3>Pass Core Web Vitals in 7 Steps</h3>
+        <p class="muted">A simple checklist for LCP, INP, and CLS that actually moves rankings.</p>
+        <a class="more" href="#" aria-label="Read Pass Core Web Vitals in 7 Steps">Read →</a>
       </div>
-    </section>
+    </article>
+    
+    <article class="post">
+      <img src="/images/local-seo-hubli-dharwad.jpg" alt="An infographic for Local SEO, showing a map of Hubli-Dharwad with icons for Google Business Profile and customer reviews." loading="lazy">
+      <div class="body">
+        <h3>Local SEO for Hubli–Dharwad</h3>
+        <p class="muted">How to optimize your Google Business Profile and citations the right way.</p>
+        <a class="more" href="#">Read →</a>
+      </div>
+    </article>
+    
+    <article class="post">
+      <img src="/images/featured-snippets.jpg" alt="An infographic showing how to win Google Featured Snippets with lists, Q&A format, and clear headings." loading="lazy">
+      <div class="body">
+        <h3>Content That Wins Featured Snippets</h3>
+        <p class="muted">Practical structure and schema tips for outranking competitors.</p>
+        <a class="more" href="#">Read →</a>
+      </div>
+    </article>
+    
+  </div>
+</section>
 
     <section id="seo-details" class="container page-section">
       <h2 class="section-title">SEO Services: Technical + Content + Links</h2>
@@ -530,6 +581,7 @@
 </body>
 
 </html>
+
 
 
 
