@@ -114,11 +114,7 @@
     .nav{display:flex;align-items:center;justify-content:space-between;padding:.75rem 0}
     .brand{display:flex;align-items:center;gap:.6rem;color:var(--green);font-weight:800;font-size:1.25rem}
     .brand i{font-size:1.2rem}
-    .menu{display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:flex-end}
-    .menu a{color:var(--lightest-slate);font-weight:600}
-    .cta{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--green);color:var(--green);padding:.55rem .9rem;border-radius:.5rem}
-    .cta:hover{background:rgba(100,255,218,.08);text-decoration:none}
-
+    
     /* Hero */
     .hero { padding-top: 88px; padding-bottom: 48px; }
     .hero h1{color:var(--lightest-slate);font-size:clamp(1.9rem,4vw,3rem);line-height:1.2;margin:0 0 .75rem}
@@ -154,11 +150,13 @@
     .testimonial{background:var(--light-navy);border:1px solid rgba(100,255,218,.12);padding:1rem;border-radius:.9rem}
     .testimonial .who{display:flex;align-items:center;gap:.6rem;margin-top:.6rem;color:var(--lightest-slate)}
 
-    /* New Blog Styles */
+    /* Blog Styles */
     .post {
       background:var(--light-navy);border:1px solid rgba(100,255,218,.12);
       border-radius: .9rem;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
     .post img {
       width: 100%;
@@ -167,6 +165,9 @@
     }
     .post .body {
       padding: 1rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
     }
     .post .body h3 {
       color: var(--lightest-slate);
@@ -175,6 +176,7 @@
     .post .body p {
       color: var(--light-slate);
       margin: 0 0 1rem 0;
+      flex-grow: 1;
     }
     .post .body .more {
       font-weight: 700;
@@ -206,6 +208,9 @@
     .kicker{font-weight:800;color:var(--green);letter-spacing:.08em;font-size:.8rem;text-transform:uppercase}
     
     /* Mobile Menu Styles */
+    .menu a{color:var(--lightest-slate);font-weight:600}
+    .cta{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--green);color:var(--green);padding:.55rem .9rem;border-radius:.5rem}
+    .cta:hover{background:rgba(100,255,218,.08);text-decoration:none}
     .menu-toggle {
       display: none;
       background: none;
@@ -214,6 +219,10 @@
       padding: .35rem .6rem;
       border-radius: .5rem;
       cursor: pointer;
+    }
+    .menu {
+      display: flex;
+      gap: 1.25rem;
     }
 
     @media (max-width: 900px) {
@@ -261,7 +270,7 @@
 <body class="antialiased">
 <header>
   <div class="container nav">
-    <a class="brand" href="#home" aria-label="Apex Digital Solutions home">
+    <a class="brand" href="/" aria-label="Apex Digital Solutions home">
       <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
       <span>Apex Digital</span>
     </a>
@@ -270,11 +279,11 @@
     </button>
     <nav id="nav-menu" class="menu" aria-label="Primary">
       <a href="/blog/">Blog</a>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact" class="cta"><i class="fa-solid fa-phone"></i> Free Strategy Call</a>
+      <a href="/#services">Services</a>
+      <a href="/#about">About</a>
+      <a href="/#testimonials">Testimonials</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/#contact" class="cta"><i class="fa-solid fa-phone"></i> Free Strategy Call</a>
     </nav>
   </div>
 </header>
@@ -299,37 +308,37 @@
         <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
         <h3>Search Engine Optimization (SEO)</h3>
         <p>Technical SEO, content strategy, link earning, and local SEO for high-intent traffic.</p>
-        <a class="more" href="#seo-details">Learn more →</a>
+        <a class="more" href="#faq">Learn more →</a>
       </article>
       <article class="card" role="listitem">
         <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
         <h3>Google Ads / PPC</h3>
         <p>Full-funnel campaigns with conversion tracking and landing pages tuned for ROI.</p>
-        <a class="more" href="#ppc-details">Learn more →</a>
+        <a class="more" href="#faq">Learn more →</a>
       </article>
       <article class="card" role="listitem">
         <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
         <h3>Social Media Marketing</h3>
         <p>Engaging content, community growth, and paid social for reach and conversions.</p>
-        <a class="more" href="#smm-details">Learn more →</a>
+        <a class="more" href="#faq">Learn more →</a>
       </article>
       <article class="card" role="listitem">
         <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
         <h3>Web Design & Performance</h3>
         <p>Fast, responsive websites built to pass Core Web Vitals and convert visitors.</p>
-        <a class="more" href="#web-details">Learn more →</a>
+        <a class="more" href="#faq">Learn more →</a>
       </article>
       <article class="card" role="listitem">
         <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>
         <h3>Analytics & CRO</h3>
         <p>GA4, Tag Manager, heatmaps and A/B testing to improve funnel efficiency.</p>
-        <a class="more" href="#cro-details">Learn more →</a>
+        <a class="more" href="#faq">Learn more →</a>
       </article>
       <article class="card" role="listitem">
         <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
         <h3>Local SEO</h3>
         <p>GBP optimization, citations, and location pages for Hubli–Dharwad and beyond.</p>
-        <a class="more" href="#local-details">Learn more →</a>
+        <a class="more" href="#faq">Learn more →</a>
       </article>
     </div>
   </section>
@@ -375,27 +384,27 @@
     <h2 class="section-title">Insights & SEO Guides</h2>
     <div class="posts grid grid-3">
       <article class="post">
-        <img src="/images/core-web-vitals.jpg" alt="An infographic explaining Google's Core Web Vitals: LCP, FID, and CLS." loading="lazy">
+        <img src="/images/digital-marketing-dharwad.jpg" alt="Digital marketing concepts shown over a background of Dharwad." loading="lazy">
         <div class="body">
-          <h3>Pass Core Web Vitals in 7 Steps</h3>
-          <p class="muted">A simple checklist for LCP, INP, and CLS that actually moves rankings.</p>
-          <a class="more" href="/blog/">Read →</a>
+          <h3>Best Digital Marketing Services in Dharwad (2025 Guide)</h3>
+          <p class="muted">Expert SEO, social media, and content strategies to grow your local business in 2025.</p>
+          <a class="more" href="/blog/digital-marketing-services-dharwad.html">Read →</a>
         </div>
       </article>
       <article class="post">
-        <img src="/images/local-seo-hubli-dharwad.jpg" alt="An infographic for Local SEO, showing a map of Hubli-Dharwad with icons for Google Business Profile and customer reviews." loading="lazy">
+        <img src="/images/seo-vs-google-ads.jpg" alt="An illustration comparing SEO (a plant with deep roots) to Google Ads (a fast rocket)." loading="lazy">
         <div class="body">
-          <h3>Local SEO for Hubli–Dharwad</h3>
-          <p class="muted">How to optimize your Google Business Profile and citations the right way.</p>
-          <a class="more" href="/blog/">Read →</a>
+          <h3>SEO vs Google Ads – Which is Better for 2025?</h3>
+          <p class="muted">A clear comparison of speed, cost, and ROI, including a quick decision guide.</p>
+          <a class="more" href="/blog/seo-vs-google-ads-2025.html">Read →</a>
         </div>
       </article>
       <article class="post">
-        <img src="/images/featured-snippets.jpg" alt="An infographic showing how to win Google Featured Snippets with lists, Q&A format, and clear headings." loading="lazy">
+        <img src="/images/local-seo-infographic.jpg" alt="An infographic showing how local SEO drives customers to a physical store." loading="lazy">
         <div class="body">
-          <h3>Content That Wins Featured Snippets</h3>
-          <p class="muted">Practical structure and schema tips for outranking competitors</p>
-          <a class="more" href="/blog/">Read →</a>
+          <h3>How Local SEO Helps Small Businesses in 2025</h3>
+          <p class="muted">Why “near me” searches, reviews, and Google Maps matter for local businesses.</p>
+          <a class="more" href="/blog/local-seo-2025.html">Read →</a>
         </div>
       </article>
     </div>
@@ -463,7 +472,7 @@
           </div>
         </div>
         <div style="margin-top:1rem">
-          <iframe title="Map to Apex Digital Solutions Hubli–Dharwad" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123019.53569103233!2d74.93380489726562!3d15.394136500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb8d6d3a58be239%3A0x6357c93e5025a1f6!2sHubli-Dharwad%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1693833294380!5m2!1sen!2sin" loading="lazy" style="width:100%;height:260px;border:0;border-radius:.75rem"></iframe>
+          <iframe title="Map to Apex Digital Solutions Hubli–Dharwad" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123049.25227788464!2d74.93335284335937!3d15.352341800000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb8d6d355a29555%3A0x89e078316df59929!2sHubballi-Dharwad%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1678257014187!5m2!1sen!2sin" loading="lazy" style="width:100%;height:260px;border:0;border-radius:.75rem"></iframe>
         </div>
       </div>
     </div>
