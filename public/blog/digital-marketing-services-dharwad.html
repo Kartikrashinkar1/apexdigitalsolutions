@@ -46,7 +46,7 @@
     .article-header { padding: 88px 0 48px; text-align: center; }
     .article-header h1 { color:var(--lightest-slate);font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.2;margin:0 0 .75rem; }
     .article-content { padding: 32px 0 64px; }
-    .article-content h2, .article-content h3 { color: var(--lightest-slate); margin-top: 2.5rem; }
+    .article-content h2, .article-content h3 { color: var(--lightest-slate); margin-top: 2.5rem; text-align: center; }
     .article-content p, .article-content ul { max-width: 720px; margin-left: auto; margin-right: auto; }
     .article-content ul { padding-left: 20px; }
     .article-content li { margin-bottom: 0.5rem; }
@@ -113,10 +113,10 @@
       
       <hr style="border-color: rgba(100,255,218,.15); margin: 2.5rem auto; max-width: 720px;">
       
-      <p>Ready to put your Dharwad business on the map? A proven digital strategy is your key to growth. <a href="/#contact">Contact Apex Digital Solutions today</a> for a free, no-obligation consultation to discuss your business goals.</p>
+      <p style="text-align: center;">Ready to put your Dharwad business on the map? A proven digital strategy is your key to growth. <a href="/#contact">Contact Apex Digital Solutions today</a> for a free, no-obligation consultation to discuss your business goals.</p>
       
-      <div style="max-width: 720px; margin: 2rem auto 0 auto;">
-          <a href="/blog/" class="btn btn-outline" style="border-style: solid; padding: .85rem 1.15rem;">← Back to All Posts</a>
+      <div style="max-width: 720px; margin: 2rem auto 0 auto; text-align: center;">
+          <a href="/blog/" style="border: 1px solid var(--green); color: var(--green); padding: .85rem 1.15rem; border-radius: .6rem; display: inline-block;">← Back to All Posts</a>
       </div>
     </article>
   </section>
@@ -156,12 +156,6 @@
 </footer>
 <script>
   const yearEl = document.getElementById('year'); if(yearEl){ yearEl.textContent = new Date().getFullYear(); }
-
-  const sections = document.querySelectorAll('.page-section');
-  const reveal = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); reveal.unobserve(e.target);} })
-  },{threshold:0.12});
-  sections.forEach(s=>reveal.observe(s));
 </script>
 <script>
   const menuToggle = document.getElementById('menu-toggle');
