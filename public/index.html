@@ -212,78 +212,65 @@
     .kicker{font-weight:800;color:var(--green);letter-spacing:.08em;font-size:.9rem;text-transform:uppercase; margin-bottom: 1rem; display: block;}
     
     /* Mobile Menu Styles */
-.menu ul {
-  display: flex;
-  gap: 1.25rem;
-  align-items: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.menu a{color:var(--lightest-slate);font-weight:600}
-.cta{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--green);color:var(--green);padding:.55rem .9rem;border-radius:.5rem}
-.cta:hover{background:rgba(100,255,218,.1);}
-.menu-toggle {
-  display: none;
-  background: none;
-  border: 1px solid rgba(100,255,218,.25);
-  color: var(--green);
-  padding: .35rem .6rem;
-  border-radius: .5rem;
-  cursor: pointer;
-  z-index: 1001;
-}
+    .menu a{color:var(--lightest-slate);font-weight:600}
+    .cta{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--green);color:var(--green);padding:.55rem .9rem;border-radius:.5rem}
+    .cta:hover{background:rgba(100,255,218,.08);text-decoration:none}
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid rgba(100,255,218,.25);
+      color: var(--green);
+      padding: .35rem .6rem;
+      border-radius: .5rem;
+      cursor: pointer;
+    }
+    .menu {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
 
-@media (max-width: 900px) {
-  .menu ul {
-    display: none;
-    position: fixed;
-    top: 0; 
-    right: 0;
-    bottom: 0;
-    width: min(75vw, 300px);
-    background: var(--lighter-navy);
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 2rem;
-    box-shadow: -10px 0 30px -15px rgba(2,12,27,.7);
-    transform: translateX(100%);
-    transition: transform .3s ease-in-out;
-  }
-  .menu.is-open ul {
-    display: flex;
-    transform: translateX(0);
-  }
-  .menu li {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-  .menu a {
-    padding: .75rem;
-    width: 100%;
-    text-align: left;
-    display: block;
-    font-size: 1.1rem;
-    border-radius: .6rem;
-  }
-  .menu a:hover {
-    background: rgba(100,255,218,.08);
-  }
-  .menu a.cta {
-    margin-top: .5rem;
-    border: 1px solid var(--green);
-    background: transparent;
-    color: var(--green);
-    text-align: center;
-  }
-  .menu a.cta:hover {
-    background: rgba(100,255,218,.1);
-  }
-  .menu-toggle {
-    display: block;
-  }
-}
+    @media (max-width: 900px) {
+      .menu {
+        display: none;
+        position: absolute;
+        top: 60px; /* Adjust this to your header height */
+        right: 1.25rem; /* Position it from the right */
+        width: 280px; /* Give it a fixed width */
+        max-width: 80vw; /* Ensure it doesn't get too wide on small screens */
+        background: var(--light-navy);
+        flex-direction: column;
+        align-items: flex-start; /* Align items to the left */
+        padding: .75rem;
+        border-radius: .9rem;
+        border: 1px solid rgba(100,255,218,.12);
+        box-shadow: 0 10px 30px -15px rgba(2,12,27,.7);
+      }
+      .menu.is-open {
+        display: flex;
+      }
+      .menu a {
+        padding: .75rem; /* Add padding all around */
+        width: 100%;
+        text-align: left; /* Align text to the left */
+        border-radius: .6rem;
+      }
+      .menu a:hover {
+        background: rgba(100,255,218,.08);
+        text-decoration: none;
+      }
+      .menu a.cta {
+        margin-top: .5rem;
+        border: none;
+        background: var(--green);
+        color: var(--navy);
+        text-align: center;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+
   </style>
 </head>
 <body class="antialiased">
@@ -588,4 +575,5 @@
 </script>
 </body>
 </html>
+
 
