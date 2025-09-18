@@ -142,45 +142,70 @@
     .testimonial p { position: relative; z-index: 2; font-size: 1.05rem; }
     .testimonial .who{display:flex;align-items:center;gap:.6rem;margin-top:.75rem;color:var(--lightest-slate); font-weight: 600; position: relative; z-index: 2;}
 
-    /* Blog Styles */
-    .post {
-      background:var(--light-navy);border:1px solid #1b2b4a;
-      border-radius: .9rem;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform .3s ease, box-shadow .3s ease;
-    }
-    .post:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px -15px rgba(2,12,27,.9);
-    }
-    .post img {
-      width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-    }
-    .post .body {
-      padding: 1.25rem;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .post .body h3 {
-      color: var(--lightest-slate);
-      margin: 0 0 .5rem 0;
-      font-size: 1.2rem;
-    }
-    .post .body p {
-      color: var(--slate);
-      margin: 0 0 1rem 0;
-      flex-grow: 1;
-    }
-    .post .body .more {
-      font-weight: 700;
-      color: var(--green);
-    }
-    
+    /* Blog & Insights Slider Styles */
+.post-slider-container {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* For Firefox */
+  margin: 0 -1.25rem; /* Extend to edges to hide scrollbar */
+  padding: 0 1.25rem; /* Add padding back inside */
+}
+.post-slider-container::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari */
+}
+.posts-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 85%; /* How wide each item is on mobile */
+  gap: 1rem;
+  padding-bottom: 1rem; /* Space for shadow */
+}
+@media (min-width: 640px) {
+  .posts-grid { grid-auto-columns: 48%; } /* Two items on tablet */
+}
+@media (min-width: 1024px) {
+  .posts-grid { grid-auto-columns: 32%; } /* Three items on desktop */
+}
+
+.post {
+  scroll-snap-align: start;
+  background:var(--light-navy);
+  border:1px solid #1b2b4a;
+  border-radius: .9rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px -15px rgba(2,12,27,.9);
+}
+.post img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+.post .body {
+  padding: 1.25rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.post .body h3 {
+  color: var(--lightest-slate);
+  margin: 0 0 .5rem 0;
+  font-size: 1.2rem;
+}
+.post .body p {
+  color: var(--slate);
+  margin: 0 0 1rem 0;
+  flex-grow: 1;
+}
+.post .body .more {
+  font-weight: 700;
+  color: var(--green);
+}
     /* FAQ */
     details.faq{background:var(--light-navy);border:1px solid #1b2b4a;border-radius:.9rem;padding:1.25rem}
     details.faq+details.faq{margin-top:.75rem}
@@ -395,25 +420,26 @@
   </section>
 
  <section id="blog" class="container page-section">
-    <h2 class="section-title">Our Latest Insights</h2>
-    <div class="posts grid grid-3">
+  <h2 class="section-title">Our Latest Insights</h2>
+  <div class="post-slider-container">
+    <div class="posts-grid">
       <article class="post">
-  <a href="/blog/free-seo-tools-for-beginners-2025.html" aria-label="Read more about Top 10 Free SEO Tools for Beginners">
-    <img 
-      src="/images/seo-tools-beginners-800w.png"
-      srcset="/images/seo-tools-beginners-400w.png 400w, 
-              /images/seo-tools-beginners-800w.png 800w, 
-              /images/seo-tools-beginners-1200w.png 1200w"
-      sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw"
-      alt="An SEO toolbox with icons for keyword research, page speed, and analytics." 
-      loading="lazy">
-  </a>
-  <div class="body">
-    <h3>Top 10 Free SEO Tools for Beginners in 2025</h3>
-    <p class="muted">A beginner's guide to the best free SEO tools for keyword research, on-page SEO, technical analysis, and link building.</p>
-    <a class="more" href="/blog/free-seo-tools-for-beginners-2025.html">Read →</a>
-  </div>
-</article>
+        <a href="/blog/free-seo-tools-for-beginners-2025.html" aria-label="Read more about Top 10 Free SEO Tools">
+          <img 
+            src="/images/seo-tools-beginners-800w.png"
+            srcset="/images/seo-tools-beginners-400w.png 400w, 
+                    /images/seo-tools-beginners-800w.png 800w, 
+                    /images/seo-tools-beginners-1200w.png 1200w"
+            sizes="(max-width: 640px) 85vw, (max-width: 1024px) 48vw, 32vw"
+            alt="An SEO toolbox with various icons." 
+            loading="lazy">
+        </a>
+        <div class="body">
+          <h3>Top 10 Free SEO Tools for Beginners in 2025</h3>
+          <p class="muted">A beginner's guide to the best free SEO tools for keyword research, on-page SEO, technical analysis, and link building.</p>
+          <a class="more" href="/blog/free-seo-tools-for-beginners-2025.html">Read →</a>
+        </div>
+      </article>
       <article class="post">
         <a href="/blog/digital-marketing-services-dharwad.html" aria-label="Read more about Best Digital Marketing Services in Dharwad">
           <img 
@@ -421,7 +447,7 @@
             srcset="/images/digital-marketing-dharwad-400w.png 400w, 
                     /images/digital-marketing-dharwad-800w.png 800w, 
                     /images/digital-marketing-dharwad-1200w.png 1200w"
-            sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw"
+            sizes="(max-width: 640px) 85vw, (max-width: 1024px) 48vw, 32vw"
             alt="Infographic for Digital Marketing in Dharwad" 
             loading="lazy">
         </a>
@@ -438,8 +464,8 @@
             srcset="/images/seo-vs-google-ads-400w.png 400w, 
                     /images/seo-vs-google-ads-800w.png 800w, 
                     /images/seo-vs-google-ads-1200w.png 1200w"
-            sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw"
-            alt="An illustration comparing SEO (a plant with deep roots) to Google Ads (a fast rocket)." 
+            sizes="(max-width: 640px) 85vw, (max-width: 1024px) 48vw, 32vw"
+            alt="An illustration comparing SEO to Google Ads." 
             loading="lazy">
         </a>
         <div class="body">
@@ -455,8 +481,8 @@
             srcset="/images/local-seo-infographic-400w.png 400w, 
                     /images/local-seo-infographic-800w.png 800w, 
                     /images/local-seo-infographic-1200w.png 1200w"
-            sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw"
-            alt="An infographic showing how local SEO drives customers to a physical store." 
+            sizes="(max-width: 640px) 85vw, (max-width: 1024px) 48vw, 32vw"
+            alt="An infographic showing how local SEO works." 
             loading="lazy">
         </a>
         <div class="body">
@@ -466,7 +492,8 @@
         </div>
       </article>
     </div>
-  </section>
+  </div>
+</section>
 
   <section id="faq" class="container page-section">
     <h2 class="section-title">Frequently Asked Questions</h2>
@@ -590,6 +617,7 @@
 </script>
 </body>
 </html>
+
 
 
 
